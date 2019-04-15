@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://runmemory.github.io/"/>
-  <updated>2019-04-15T08:24:53.609Z</updated>
+  <updated>2019-04-15T10:13:40.978Z</updated>
   <id>https://runmemory.github.io/</id>
   
   <author>
@@ -17,25 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Git教程</title>
+    <title>Git知识点总结</title>
     <link href="https://runmemory.github.io/title.html"/>
     <id>https://runmemory.github.io/title.html</id>
     <published>2019-04-15T08:24:53.000Z</published>
-    <updated>2019-04-15T08:24:53.609Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="https://runmemory.github.io/title.html"/>
-    <id>https://runmemory.github.io/title.html</id>
-    <published>2019-04-15T03:51:51.365Z</published>
-    <updated>2019-04-15T03:51:51.366Z</updated>
+    <updated>2019-04-15T10:13:40.978Z</updated>
     
     <summary type="html">
     
@@ -43,12 +29,14 @@
       
         
         
-          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a
+          &lt;h1 id=&quot;Git知识点总结&quot;&gt;&lt;a href=&quot;#Git知识点总结&quot; class=&quot;headerlink&quot; title=&quot;Git知识点总结&quot;&gt;&lt;/a&gt;&lt;center&gt;Git知识点总结&lt;/center&gt;&lt;/h1&gt;&lt;h2 id=&quot;什么是版本控制？&quot;&gt;&lt;a
         
       
     
     </summary>
     
+    
+      <category term="Git" scheme="https://runmemory.github.io/tags/Git/"/>
     
   </entry>
   

@@ -4,26 +4,19 @@
   
     
     <entry>
-      <title>Git教程</title>
+      <title>Git知识点总结</title>
       <link href="/title.html"/>
       <url>/title.html</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h1 id="Git知识点总结"><a href="#Git知识点总结" class="headerlink" title="Git知识点总结"></a><center>Git知识点总结</center></h1><h2 id="什么是版本控制？"><a href="#什么是版本控制？" class="headerlink" title="什么是版本控制？"></a>什么是版本控制？</h2><blockquote><p>版本控制是对软件开发过程中各种程序代码、配置文件及说明文档等文件变更的管理，是软件配置管理的核心思想之一。【引用自百度百科】</p></blockquote><h2 id="版本控制应该具备哪些功能？"><a href="#版本控制应该具备哪些功能？" class="headerlink" title="版本控制应该具备哪些功能？"></a>版本控制应该具备哪些功能？</h2><p> 1.版本管理                                 </p><blockquote><p>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在保存每一个文件的时候做到不保存重复的数据，以便节约存储空间，这就是版本控制带来的好处，极大的提高了效率。</p></blockquote><p>2.数据备份</p><blockquote><p>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;使用版本控制不仅保存了当前文件的状态，还能够保存之前每一次提交过的记录。</p></blockquote><p>3.协同修改</p><blockquote><p>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;多个人能并行不悖的修改服务器端的同一个文件。</p></blockquote><p>4.权限控制</p><blockquote><p>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;能对团队中参与开发的人员进行权限的控制。能对团队外的开发贡献者进行提交代码的审核，这是Git版本控制独有的。</p></blockquote><p>5.历史记录</p><blockquote><p>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;能查看某一文件的拥有者，修改文件时间，修改内容，日志信息；同时能讲本地文件恢复到某一个历史状态。</p></blockquote><p>6.分支管理</p><blockquote><p>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;允许开发团队在工作中多个分支进行开发，进一步提高了效率。</p></blockquote>]]></content>
       
       
       
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Hello World</title>
-      <link href="/title.html"/>
-      <url>/title.html</url>
-      
-        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
-      
-      
+        <tags>
+            
+            <tag> Git </tag>
+            
+        </tags>
       
     </entry>
     
