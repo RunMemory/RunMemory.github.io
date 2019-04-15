@@ -371,6 +371,41 @@ $(function () {
                     
 
                     
+                        
+
+<link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<div class="music-player">
+    
+    <div class="title center-align">
+        <i class="fa fa-music"></i>&nbsp;&nbsp;听听音乐
+    </div>
+    
+    <div class="row">
+        <div class="col l8 offset-l2 m10 offset-m1 s12">
+            <div id="aplayer" class="music"></div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script>
+$(function () {
+    new APlayer({
+        container: document.getElementById('aplayer'),
+        fixed: 'false' === 'true',
+        autoplay: 'false' === 'true',
+        theme: '#42b983',
+        loop: 'all',
+        order: 'list',
+        preload: 'auto',
+        volume: Number('0.7'),
+        listFolded: 'false' === 'true',
+        listMaxHeight: '',
+        audio: JSON.parse('[{"name":"遇见","artist":"孙燕姿","url":"http://dl.stream.qqmusic.qq.com/M800001xJbdb2MBaaz.mp3?guid=695377412&vkey=2E119439917E0F5928978F4F87CE0CE86148B8B69220166D7F09C2CD7664D414B4F21854115C0C66FD169350E1FF008B975C0BA0743D72B7&uin=5053&fromtag=66","cover":"https://ae01.alicdn.com/kf/HTB1ZipBRXzqK1RjSZFoq6zfcXXaY.jpg"},{"name":"春风化雨","artist":"银临","url":"http://dl.stream.qqmusic.qq.com/M800000X5d4g4Fvjt1.mp3?guid=262104123&vkey=1885A9E891DAE5A49E5C8D1E38D674A5D17EE39B1978B9206E1419300DE97290FE302B997E869676918CE8F975DB9836BEB1513EC6718B0F&uin=5053&fromtag=66","cover":"https://ae01.alicdn.com/kf/HTB1pXyAee3tHKVjSZSgq6x4QFXan.jpg"},{"name":"输了你赢了世界又如何","artist":"林俊杰","url":"http://dl.stream.qqmusic.qq.com/M800002mBdB70woebz.mp3?guid=452220582&vkey=78589EE93633AE136EB3829FCBD6F71197C7E1B602C616BB9BA95EE8989CB94D5D8DB0BE014DD430606E36F2472EAD95AFF2E860126F7B71&uin=5053&fromtag=66","cover":"https://ae01.alicdn.com/kf/HTB1k9VFRcbpK1RjSZFyq6x_qFXaW.jpg"}]')
+    });
+});
+</script>
+                    
 
                     
 
