@@ -344,14 +344,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        382
+                        2.6k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        1 分
+                        9 分
                     </div>
                     
                 
@@ -394,7 +394,71 @@
 <blockquote>
 <p>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;允许开发团队在工作中多个分支进行开发，进一步提高了效率。</p>
 </blockquote>
-
+<h2 id="Git简介"><a href="#Git简介" class="headerlink" title="Git简介"></a>Git简介</h2><blockquote>
+<p>Git是一个开源的分布式版本控制系统，可以有效、高速地处理从很小到非常大的项目版本管理。Git是Linus Torvalds为了帮助管理Linux内核开发而开发的一个开放源代码的版本控制软件。<br>官方网站：<a href="https://git-scm.com/" target="_blank" rel="noopener">https://git-scm.com/</a></p>
+</blockquote>
+<p></p><h4>Windows下安装Git</h4><br>&nbsp; &nbsp;&nbsp;从官网下载对应操作系统的Git，然后按默认选项安装即可。安装完成后，在任一目录下右键Git Bash here(前提是安装的时候选了这个选项)，就会弹出一个类似命令行的窗口，然后用git –version命令即可查看安装的Git版本。如下图所示<br><img src="https://ae01.alicdn.com/kf/HTB1gOFDRgDqK1RjSZSy761xEVXa9.png" alt><p></p>
+<h2 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h2><p>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;版本库又可称为仓库(repository)，只需简单的一步操作，就可以将一个目录变为版本库，这个目录里的所有文件也就被git管理起来了，比如修改、删除文件，git都能够追踪历史记录。</p>
+<ul>
+<li>第一步<br>  &nbsp; &nbsp;&nbsp;选择一个合适的地方，创建一个空的目录<pre><code> mkdir hello
+</code></pre></li>
+<li>第二步<br>  &nbsp; &nbsp;&nbsp;切换到创建的空目录下 <pre><code> cd hello
+</code></pre></li>
+<li>第二步<br> &nbsp; &nbsp;&nbsp; 使用git init 命令初始化该目录为git管理的仓库<pre><code> git init
+</code></pre>这时候，仓库就创建起来了，该目录下有一个.git的目录，该目录是隐藏的，需要通过ll -a命令才能查看，-a参数代表列出所有的文件，包括隐藏文件，因为以.开头的文件都是隐藏文件；这个目录是Git用来跟踪和管理版本库的，默认是不允许修改里面的文件的。</li>
+</ul>
+<h2 id="工作区、版本库的概念"><a href="#工作区、版本库的概念" class="headerlink" title="工作区、版本库的概念"></a>工作区、版本库的概念</h2><h3 id="nbsp-nbsp-nbsp-工作区-Working-Directory"><a href="#nbsp-nbsp-nbsp-工作区-Working-Directory" class="headerlink" title="&nbsp; &nbsp;&nbsp;工作区(Working Directory)"></a>&nbsp; &nbsp;&nbsp;工作区(Working Directory)</h3><p> &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;工作区就是你能看到的目录，比如上面创建的hello目录，整个文件夹就是一个工作区，通俗来讲，写代码的地方就是工作区</p>
+<h3 id="nbsp-nbsp-nbsp-版本库-Respository"><a href="#nbsp-nbsp-nbsp-版本库-Respository" class="headerlink" title="&nbsp; &nbsp;&nbsp;版本库(Respository)"></a>&nbsp; &nbsp;&nbsp;版本库(Respository)</h3><p> &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;工作区有一个隐藏的目录.git，上面已经介绍了这个目录是用来跟踪和管理版本库的。Git的版本库最重要的就是一个称为stage的暂存区，还有Git自动创建的master主分支，以及指向master的一个指针HEAD，用来表示当前版本。Git的回退与前进版本依靠的就是这个指针。</p>
+<p> 下图展示了这三者之间的关系：<br> <img src="https://pic.superbed.cn/item/5cb483a53a213b04174c1218" alt="enter image description here"></p>
+<h3 id="nbsp-nbsp-nbsp-设置签名"><a href="#nbsp-nbsp-nbsp-设置签名" class="headerlink" title="&nbsp; &nbsp;&nbsp;设置签名"></a>&nbsp; &nbsp;&nbsp;设置签名</h3><p>  在此之前，我们可以设置签名，用来区分不同开发人员的身份。<br> 签名的格式<br> 用户名：xxx<br> Email地址：<a href="mailto:xxx@xx.xx" target="_blank" rel="noopener">xxx@xx.xx</a>(这里的Email地址可以是随便的，主要就是为了区别不同开发人员的身份)<br> 签名可以分为项目级别的签名和系统用户级别的签名。</p>
+<ul>
+<li><p>项目签名-仅在当前本地库范围内有效，在.gti目录下执行如下命令即可设置项目签名</p>
+<pre><code>git config user.name xxx
+git config user.email xxx@xx.xx
+</code></pre><p>项目签名的信息保存在.git/config所在文件中。</p>
+</li>
+<li><p>系统用户签名-登录当前操作系统的用户范围</p>
+<pre><code>git config --global user.name xxx
+git config --global user.email xxx@xx.xx
+</code></pre><p>系统用户签名的信息保存在~/.gitconfig<br>总结：以上必须至少配置一个签名，如果两个签名都配置了，则采用就近原则，采用的是项目级别的签名。</p>
+<p>通过以上签名的配置，只需要简单的两步就可以把文件添加到Git版本库里</p>
+</li>
+</ul>
+<ol>
+<li>用git add把文件添加到暂存区。</li>
+<li>用git commit提交更改，实际就是将暂存区里所作了修改而未曾提交过的文件提交到当前分支。<br>注意：Git自动为我们创建了主分支master，git commit 就是往该主分支里提交更改，当然你也可以新建其它的分支。</li>
+</ol>
+<h3 id="nbsp-nbsp-nbsp-实践"><a href="#nbsp-nbsp-nbsp-实践" class="headerlink" title="&nbsp; &nbsp;&nbsp;实践"></a>&nbsp; &nbsp;&nbsp;实践</h3><ol>
+<li>新建一个test.txt，内容可以随便写。使用git status命令查看当前状态<br><img src="https://ae01.alicdn.com/kf/HTB1UNt1RkvoK1RjSZFw763iCFXaq.png" alt><br>表示有未追踪的文件test.txt，使用git add命令将文件提交到暂存区。查看一下状态。<br><img src="https://ae01.alicdn.com/kf/HTB1Pr4RRhTpK1RjSZFK7612wXXaX.png" alt><br>表示有可以提交的文件。当然你也可以使用git rm –cached firename命令来删除暂存区的内容。这里使用git commit命令将文件提交到本地库。提交时，必须带上提交该文件的描述，为了方便，可以带上参数-m，比如git commit -m “discription” firename<br><img src="https://ae01.alicdn.com/kf/HTB11ExJRgTqK1RjSZPh760fOFXaN.png" alt><br>表示提交成功了。<br>一旦提交成功后，如果工作区没有任何修改的文件，则工作区是干净的。<br><img src="https://ae01.alicdn.com/kf/HTB1Ypl4RhjaK1RjSZFA762dLFXaZ.png" alt></li>
+</ol>
+<p>总结：将文件提交到本地库只是两个命令，使用git add将工作区所作的工改提交到暂存区，使用git commit命令将暂存区所作的更改提交到本地库。</p>
+<h3 id="nbsp-nbsp-nbsp-查看历史记录"><a href="#nbsp-nbsp-nbsp-查看历史记录" class="headerlink" title="&nbsp; &nbsp;&nbsp;查看历史记录"></a>&nbsp; &nbsp;&nbsp;查看历史记录</h3><p>提交到本地库后，我们就可以查看所提交以及前面所提交过的历史记录。<br>使用git log命令即可查看历史纪录，HEAD指针代表指向当前版本<br><img src="https://ae01.alicdn.com/kf/HTB1xFanRhjaK1RjSZKz760VwXXaf.png" alt="enter image description here"><br>如果历史记录过多，可以使用如下方式控制查看。</p>
+<ul>
+<li>空格向下翻页</li>
+<li>b向上翻页</li>
+<li>q退出</li>
+</ul>
+<p>git log命令还可以带上参数进行查看。<br>git log –pretty=oneline<br><img src="https://ae01.alicdn.com/kf/HTB1hlFYRirpK1RjSZFh760SdXXaa.png" alt="enter image description here"><br>git log –oneline<br><img src="https://ae01.alicdn.com/kf/HTB1.etPRmrqK1RjSZK9760yypXaV.png" alt="enter image description here"><br>git reflog<br><img src="https://ae01.alicdn.com/kf/HTB1CKV4RXzqK1RjSZFC762bxVXaM.png" alt="enter image description here"><br>注：HEAD@{移动到当前版本需要多少步}</p>
+<h3 id="nbsp-nbsp-nbsp-版本的前进和后退"><a href="#nbsp-nbsp-nbsp-版本的前进和后退" class="headerlink" title="&nbsp; &nbsp;&nbsp;版本的前进和后退"></a>&nbsp; &nbsp;&nbsp;版本的前进和后退</h3><p>Git进行版本的前进和后退就是基于HEAD指针的，HEAD指针代表的是指向当前版本。有三种方法进行版本的前进和后退。</p>
+<h4 id="nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-基于版本号"><a href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-基于版本号" class="headerlink" title="&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;基于版本号"></a>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;基于版本号</h4><p> &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;git reset –hard [版本号]</p>
+<h4 id="nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-基于-号"><a href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-基于-号" class="headerlink" title="&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;基于^号"></a>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;基于^号</h4><p>  &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;git reset –hard HEAD^<br>  &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;注：一个^表示后退一步，依次类推</p>
+<h4 id="nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-基于-号-1"><a href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-基于-号-1" class="headerlink" title="&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;基于~号"></a>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;基于~号</h4><p>   &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;git reset –hard HEAD~n<br>   &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;注：表示后退n步</p>
+<p>其实reset还有三个参数，分别为—hard、—soft、—mixed，下面是三个参数的区别：</p>
+<ul>
+<li>—mixed（这个是默认的参数）<br>  回退一个版本，且会将暂存区和已提交到本地库的内容全部恢复到未暂存的状态（即工作区的状态）<ul>
+<li>—soft<br>回退一个版本，不清空暂存区，将已提交到本地库的内容恢复到暂存区</li>
+<li>—hard<br>回退一个版本，清空暂存区，将已提交的内容的版本恢复到本地，本地库的文件也将被恢复的版本所替换     </li>
+</ul>
+</li>
+</ul>
+<h3 id="nbsp-nbsp-nbsp-其它操作"><a href="#nbsp-nbsp-nbsp-其它操作" class="headerlink" title="&nbsp; &nbsp;&nbsp;其它操作"></a>&nbsp; &nbsp;&nbsp;其它操作</h3><h4 id="nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-删除文件并找回"><a href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-删除文件并找回" class="headerlink" title="&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除文件并找回"></a>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除文件并找回</h4><p>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前提：删除前，本地库必须存在该文件<br>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;操作：git reset –hard [指针位置]<br>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 删除操作已经提交到本地库：指针文职指向创建该文件的并提交过的历史记录<br>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除操作尚未提交到本地库，也就是在暂存区：指针位置指向HEAD。删除操作在暂存区，使用—hard参数，即可清空暂存区，也就是回到了创建文件已经提交过的那个历史记录了</p>
+<h4 id="nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-比较文件差异"><a href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-比较文件差异" class="headerlink" title="&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;比较文件差异"></a>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;比较文件差异</h4><p>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;git diff [文件名]—将工作区中的文件和暂存区的文件进行比较<br>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;git diff [本地库历史版本][文件名]—将工作区中的文件和本地库历史记录比较。不带文件名比较的是多个文件</p>
+<h2 id="添加到远程库"><a href="#添加到远程库" class="headerlink" title="添加到远程库"></a>添加到远程库</h2><p>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;假设以上都正常完成后，本地库就存在了提交了的文件，现在需要在Github上创建一个Git仓库，用来测试两个仓库之间的远程同步。</p>
+<h3 id="推送到远程库"><a href="#推送到远程库" class="headerlink" title="推送到远程库"></a>推送到远程库</h3><p>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;需要在Github上新建一个仓库，并且复制仓库的URL，推送操作需要仓库的URL，但是每次都要记住这么长的URL显然不是什么好事，Git提供了别名设置，使用git remote -v查看已设置的别名，使用git remote add [别名] [需要设置的名称]即可设置别名。</p>
+<h4 id="推送操作"><a href="#推送操作" class="headerlink" title="推送操作"></a>推送操作</h4><pre><code>git push [URL/别名] [要推送的分支]
+比如：
+git push origin master(将主干推送到远程仓库)
+</code></pre>
             </div>
             <hr>
 
@@ -783,7 +847,7 @@
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">382</span>
+                <span class="white-color">2.6k</span>
             
 
             
