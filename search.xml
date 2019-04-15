@@ -5,8 +5,8 @@
     
     <entry>
       <title>Git知识点总结</title>
-      <link href="/title.html"/>
-      <url>/title.html</url>
+      <link href="/gitTutorial.html"/>
+      <url>/gitTutorial.html</url>
       
         <content type="html"><![CDATA[<h1 id="Git知识点总结"><a href="#Git知识点总结" class="headerlink" title="Git知识点总结"></a><center>Git知识点总结</center></h1><h2 id="什么是版本控制？"><a href="#什么是版本控制？" class="headerlink" title="什么是版本控制？"></a>什么是版本控制？</h2><blockquote><p>版本控制是对软件开发过程中各种程序代码、配置文件及说明文档等文件变更的管理，是软件配置管理的核心思想之一。【引用自百度百科】</p></blockquote><h2 id="版本控制应该具备哪些功能？"><a href="#版本控制应该具备哪些功能？" class="headerlink" title="版本控制应该具备哪些功能？"></a>版本控制应该具备哪些功能？</h2><p> 1.版本管理                                 </p><blockquote><p>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在保存每一个文件的时候做到不保存重复的数据，以便节约存储空间，这就是版本控制带来的好处，极大的提高了效率。</p></blockquote><p>2.数据备份</p><blockquote><p>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;使用版本控制不仅保存了当前文件的状态，还能够保存之前每一次提交过的记录。</p></blockquote><p>3.协同修改</p><blockquote><p>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;多个人能并行不悖的修改服务器端的同一个文件。</p></blockquote><p>4.权限控制</p><blockquote><p>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;能对团队中参与开发的人员进行权限的控制。能对团队外的开发贡献者进行提交代码的审核，这是Git版本控制独有的。</p></blockquote><p>5.历史记录</p><blockquote><p>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;能查看某一文件的拥有者，修改文件时间，修改内容，日志信息；同时能讲本地文件恢复到某一个历史状态。</p></blockquote><p>6.分支管理</p><blockquote><p>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;允许开发团队在工作中多个分支进行开发，进一步提高了效率。</p></blockquote>]]></content>
       
