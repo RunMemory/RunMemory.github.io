@@ -344,14 +344,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        2.6k
+                        3.2k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        9 分
+                        12 分
                     </div>
                     
                 
@@ -457,10 +457,44 @@ git config --global user.email xxx@xx.xx
 </blockquote>
 <h2 id="添加到远程库"><a href="#添加到远程库" class="headerlink" title="添加到远程库"></a>添加到远程库</h2><p>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;假设以上都正常完成后，本地库就存在了提交了的文件，现在需要在Github上创建一个Git仓库，用来测试两个仓库之间的远程同步。</p>
 <h3 id="推送到远程库"><a href="#推送到远程库" class="headerlink" title="推送到远程库"></a>推送到远程库</h3><p>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;需要在Github上新建一个仓库，并且复制仓库的URL，推送操作需要仓库的URL，但是每次都要记住这么长的URL显然不是什么好事，Git提供了别名设置，使用git remote -v查看已设置的别名，使用git remote add [别名] [需要设置的名称]即可设置别名。</p>
-<h4 id="推送操作"><a href="#推送操作" class="headerlink" title="推送操作"></a>推送操作</h4><pre><code>git push [URL/别名] [要推送的分支]
+<h4 id="推送操作-push"><a href="#推送操作-push" class="headerlink" title="推送操作(push)"></a>推送操作(push)</h4><pre><code>git push [URL/别名] [要推送的分支]
 比如：
 git push origin master(将主干推送到远程仓库)
-</code></pre>
+</code></pre><h4 id="克隆操作-clone"><a href="#克隆操作-clone" class="headerlink" title="克隆操作(clone)"></a>克隆操作(clone)</h4><pre><code>git clone &lt;URL&gt;
+</code></pre><h4 id="拉取操作-pull"><a href="#拉取操作-pull" class="headerlink" title="拉取操作(pull)"></a>拉取操作(pull)</h4><pre><code>pull = fetch + merge
+git fetch [远程库URL或远程库别名] [远程分支名]---》相当于从远程库获取最新版本到本地，并不会merge
+git merge [远程库URL或远程库别名/远程库分支名]---》合并本地当前分支和远程库分支
+git pull [远程库URL或远程库别名] [远程分支名]---》相当于从远程库获取最新版本并merge到本地
+实际中，使用git fetch更保险一些，因为可以在merge前，可以查看当前清空，看是否需要进行合并。
+</code></pre><h4 id="补充：master、origin-master和origin-master的区别？"><a href="#补充：master、origin-master和origin-master的区别？" class="headerlink" title="补充：master、origin master和origin/master的区别？"></a>补充：master、origin master和origin/master的区别？</h4><blockquote>
+<p>master就是git自动创建的主分支，名为master<br>origin master：前面的origin代表远程库名（已设置远程库的URL为origin），master代表远程分支名<br>origin/master：代表的是远程分支名，是从远程拉取代码在本地建立的一份拷贝</p>
+</blockquote>
+<p>以上面的命令来举例：<br>git fetch origin master：从名为origin的远程库拉取名为master的分支到本地，既然是拉取代码，显然要有URL和分支名。<br>git merge origin/master：合并名为origin/master的分支到当前分支，显然origin/master代表的就是远程分支名</p>
+<h2 id="Git分支管理"><a href="#Git分支管理" class="headerlink" title="Git分支管理"></a>Git分支管理</h2><h3 id="什么是分支？"><a href="#什么是分支？" class="headerlink" title="什么是分支？"></a>什么是分支？</h3><blockquote>
+<p>在版本控制过程中，使用多个分支同时进行多个任务的开发。</p>
+</blockquote>
+<h3 id="分支的优势"><a href="#分支的优势" class="headerlink" title="分支的优势"></a>分支的优势</h3><blockquote>
+<p>能同时进行多个功能的开发，提高效率；如果某个分支开发失败，并不影响其它分支。</p>
+</blockquote>
+<h3 id="分支操作"><a href="#分支操作" class="headerlink" title="分支操作"></a>分支操作</h3><h4 id="nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-创建分支"><a href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-创建分支" class="headerlink" title="&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;创建分支"></a>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;创建分支</h4><blockquote>
+<p>git默认创建了一个主分支master，用一个HEAD指针指向当前分支，git用master表示最新的提交。</p>
+<pre><code>git branch [分支名]
+</code></pre></blockquote>
+<h4 id="nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-查看分支"><a href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-查看分支" class="headerlink" title="&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;查看分支"></a>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;查看分支</h4><pre><code>git branch -v
+</code></pre><h4 id="nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-切换分支"><a href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-切换分支" class="headerlink" title="&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;切换分支"></a>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;切换分支</h4><pre><code>git checkout [分支名]
+</code></pre><h4 id="nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-合并分支"><a href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-合并分支" class="headerlink" title="&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;合并分支"></a>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;合并分支</h4><blockquote>
+<p>第一步：切换到被合并的分支上</p>
+<pre><code>git checkout [被合并的分支名]
+</code></pre><p>第二步：执行merge命令</p>
+<pre><code>git merge [有新内容分支名]
+</code></pre></blockquote>
+<h4 id="nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-解决冲突"><a href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-解决冲突" class="headerlink" title="&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;解决冲突"></a>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;解决冲突</h4><h5 id="nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-冲突的表现"><a href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-冲突的表现" class="headerlink" title="&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;冲突的表现"></a>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;冲突的表现</h5><blockquote>
+<p>冲突就是当两个分支修改同一个文件的同一个地方，且修改的内容不一样，就会产生冲突。</p>
+</blockquote>
+<h5 id="nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-如何解决冲突"><a href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-如何解决冲突" class="headerlink" title="&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如何解决冲突"></a>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如何解决冲突</h5><blockquote>
+<p>第一步：删除不必要的符号，比如分支信息<br>第二步：协同商量修改文件，保存退出<br>第三步：git add [文件名]<br>第四步：git commit -m “日志信息”<br>注：第四步不需要带文件名</p>
+</blockquote>
+
             </div>
             <hr>
 
@@ -849,7 +883,7 @@ git push origin master(将主干推送到远程仓库)
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">2.6k</span>
+                <span class="white-color">3.2k</span>
             
 
             
