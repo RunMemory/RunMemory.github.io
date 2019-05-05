@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>redis</title>
+      <link href="/redis.html"/>
+      <url>/redis.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="Linux下redis的安装和部署"><a href="#Linux下redis的安装和部署" class="headerlink" title="Linux下redis的安装和部署"></a><center>Linux下redis的安装和部署</center></h1><h2 id="什么是Redis？"><a href="#什么是Redis？" class="headerlink" title="什么是Redis？"></a>什么是Redis？</h2><blockquote><p>Redis是一个开源的使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。redis是一个key-value存储系统。和Memcached类似，它支持存储的value类型相对更多，包括string(字符串)、list(链表)、set(集合)、zset(sorted set –有序集合)和hash（哈希类型）。这些数据类型都支持push/pop、add/remove及取交集并集和差集及更丰富的操作，而且这些操作都是原子性的。在此基础上，redis支持各种不同方式的排序。与memcached一样，为了保证效率，数据都是缓存在内存中。区别的是redis会周期性的把更新的数据写入磁盘或者把修改操作写入追加的记录文件，并且在此基础上实现了master-slave(主从)同步。</p></blockquote><h2 id="下载和安装"><a href="#下载和安装" class="headerlink" title="下载和安装"></a>下载和安装</h2><blockquote><p>1、从官网下载到压缩包：<a href="https://redis.io/download" target="_blank" rel="noopener">点击下载</a><br>2、通过远程管理工具xstp，将压缩包上传至linux服务器<br>3、将压缩包解压到/usr/local目录下：tar -zxvf redis-5.0.4.tar.gz -C /usr/local（注意：由于压缩包后缀为.tar.gz，所有需要gzip解压，对应z参数）<br>4、使用make命令进行编译，因为redis是c语言开发的，需要编译，编译需要gcc编译器（gcc是GNU compiler collection的缩写，它是linux下一个编译器集合，是c或c++程序的编译器）如果没有gcc编译器，需要使用yum -y install gcc安装gcc编译器。</p></blockquote><h2 id="Redis的目录结构"><a href="#Redis的目录结构" class="headerlink" title="Redis的目录结构"></a>Redis的目录结构</h2><p><img src="https://ae01.alicdn.com/kf/HTB1Fz4Thu3tHKVjSZSg7604QFXaY.png" alt><br>其中redis.conf为redis的配置文件，src目录下有启动和关闭redis的程序。</p><h2 id="Redis的启动和关闭"><a href="#Redis的启动和关闭" class="headerlink" title="Redis的启动和关闭"></a>Redis的启动和关闭</h2><h3 id="前台启动"><a href="#前台启动" class="headerlink" title="前台启动"></a>前台启动</h3><blockquote><p>切换到src目录下，执行./redis-server即可启动redis服务<br><img src="https://ae01.alicdn.com/kf/HTB1Mu7VUhTpK1RjSZFK7612wXXaV.png" alt><br>注意：这里执行./redis-server启动的redis服务，代表的是在前台启动redis服务，当你关闭当前会话时，即关闭了redis的服务。</p></blockquote><h3 id="后台启动"><a href="#后台启动" class="headerlink" title="后台启动"></a>后台启动</h3><p>切换到src目录下，执行./redis-server &amp;即可在后台启动redis服务<br><img src="https://ae01.alicdn.com/kf/HTB1PagOUjDpK1RjSZFr76178VXaA.png" alt></p><h3 id="后台启动并输出日志到nohup-out"><a href="#后台启动并输出日志到nohup-out" class="headerlink" title="后台启动并输出日志到nohup.out"></a>后台启动并输出日志到nohup.out</h3><blockquote><p>使用nohup ./redis-server &amp;命令即可在后台启动redis服务，并创建日志文件nohup.out，用于保存redis的日志信息。日志文件nohup.out的输出路径可在redis的配置文件中设置。<br><img src="https://ae01.alicdn.com/kf/HTB1OUppUxnaK1RjSZFt762C2VXaN.png" alt></p></blockquote><h3 id="关闭"><a href="#关闭" class="headerlink" title="关闭"></a>关闭</h3><blockquote><p>切换到src目录下，执行./redis-cli shutdown即可关闭redis服务<br><img src="https://ae01.alicdn.com/kf/HTB1n5U2UgHqK1RjSZFP763wapXaf.png" alt><br>也可使用kill直接杀死进程达到关闭redis服务的效果<br><img src="https://ae01.alicdn.com/kf/HTB1n5U2UgHqK1RjSZFP763wapXaf.png" alt></p></blockquote>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> redis </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Git知识点总结</title>
       <link href="/gitTutorial.html"/>
       <url>/gitTutorial.html</url>

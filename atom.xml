@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://runmemory.github.io/"/>
-  <updated>2019-04-21T09:14:49.762Z</updated>
+  <updated>2019-05-05T13:42:16.494Z</updated>
   <id>https://runmemory.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>redis</title>
+    <link href="https://runmemory.github.io/redis.html"/>
+    <id>https://runmemory.github.io/redis.html</id>
+    <published>2019-05-05T12:27:27.000Z</published>
+    <updated>2019-05-05T13:42:16.494Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Linux下redis的安装和部署&quot;&gt;&lt;a href=&quot;#Linux下redis的安装和部署&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="redis" scheme="https://runmemory.github.io/tags/redis/"/>
+    
+  </entry>
   
   <entry>
     <title>Git知识点总结</title>
