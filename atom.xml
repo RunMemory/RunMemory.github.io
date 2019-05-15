@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://runmemory.github.io/"/>
-  <updated>2019-05-15T10:01:30.680Z</updated>
+  <updated>2019-05-15T10:04:21.001Z</updated>
   <id>https://runmemory.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>redis01</title>
+    <title>redis客户端</title>
     <link href="https://runmemory.github.io/redis01.html"/>
     <id>https://runmemory.github.io/redis01.html</id>
     <published>2019-05-15T09:17:08.000Z</published>
-    <updated>2019-05-15T10:01:30.680Z</updated>
+    <updated>2019-05-15T10:04:21.001Z</updated>
     
     <summary type="html">
     
@@ -41,11 +41,11 @@
   </entry>
   
   <entry>
-    <title>redis</title>
+    <title>Linux下redis的安装和部署</title>
     <link href="https://runmemory.github.io/redis.html"/>
     <id>https://runmemory.github.io/redis.html</id>
     <published>2019-05-05T12:27:27.000Z</published>
-    <updated>2019-05-05T13:42:16.494Z</updated>
+    <updated>2019-05-15T10:04:17.276Z</updated>
     
     <summary type="html">
     

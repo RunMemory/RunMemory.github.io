@@ -4,7 +4,7 @@
   
     
     <entry>
-      <title>redis01</title>
+      <title>redis客户端</title>
       <link href="/redis01.html"/>
       <url>/redis01.html</url>
       
@@ -23,7 +23,7 @@
     
     
     <entry>
-      <title>redis</title>
+      <title>Linux下redis的安装和部署</title>
       <link href="/redis.html"/>
       <url>/redis.html</url>
       
