@@ -4,9 +4,10 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="redis, RunMemory">
-    <meta name="description" content="Linux下redis的安装和部署什么是Redis？
-Redis是一个开源的使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。redis是一个key-value存储系统。和M">
+    <meta name="keywords" content="redis01, RunMemory">
+    <meta name="description" content="redis客户端redis命令行客户端
+redis-cli(Redis Command Line Interface)是Redis自带的基于命令行的Redis客户端，用于与服务端交互，可以使用该客户端来执行redis的各种命令。
+直接连接r">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +15,7 @@ Redis是一个开源的使用ANSI C语言编写、支持网络、可基于内存
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>redis | RunMemory</title>
+    <title>redis01 | RunMemory</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -209,7 +210,7 @@ Redis是一个开源的使用ANSI C语言编写、支持网络、可基于内存
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        redis
+                        redis01
                     </div>
                 </div>
             </div>
@@ -335,14 +336,14 @@ Redis是一个开源的使用ANSI C语言编写、支持网络、可基于内存
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-05-05
+                    2019-05-15
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        637
+                        614
                     </div>
                     
 
@@ -365,23 +366,49 @@ Redis是一个开源的使用ANSI C语言编写、支持网络、可基于内存
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Linux下redis的安装和部署"><a href="#Linux下redis的安装和部署" class="headerlink" title="Linux下redis的安装和部署"></a><center>Linux下redis的安装和部署</center></h1><h2 id="什么是Redis？"><a href="#什么是Redis？" class="headerlink" title="什么是Redis？"></a>什么是Redis？</h2><blockquote>
-<p>Redis是一个开源的使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。redis是一个key-value存储系统。和Memcached类似，它支持存储的value类型相对更多，包括string(字符串)、list(链表)、set(集合)、zset(sorted set –有序集合)和hash（哈希类型）。这些数据类型都支持push/pop、add/remove及取交集并集和差集及更丰富的操作，而且这些操作都是原子性的。在此基础上，redis支持各种不同方式的排序。与memcached一样，为了保证效率，数据都是缓存在内存中。区别的是redis会周期性的把更新的数据写入磁盘或者把修改操作写入追加的记录文件，并且在此基础上实现了master-slave(主从)同步。</p>
+                <h1 id="redis客户端"><a href="#redis客户端" class="headerlink" title="redis客户端"></a><center>redis客户端</center></h1><h2 id="redis命令行客户端"><a href="#redis命令行客户端" class="headerlink" title="redis命令行客户端"></a>redis命令行客户端</h2><blockquote>
+<p>redis-cli(Redis Command Line Interface)是Redis自带的基于命令行的Redis客户端，用于与服务端交互，可以使用该客户端来执行redis的各种命令。</p>
+<h3 id="直接连接redis（默认ip127-0-0-1，端口6379）：-redis-cli"><a href="#直接连接redis（默认ip127-0-0-1，端口6379）：-redis-cli" class="headerlink" title="直接连接redis（默认ip127.0.0.1，端口6379）：./redis-cli"></a>直接连接redis（默认ip127.0.0.1，端口6379）：./redis-cli</h3><p><img src="https://ae01.alicdn.com/kf/HTB1Z1XYVZfpK1RjSZFO7616nFXaf.png" alt></p>
+<h3 id="指定IP和端口连接redis：-redis-cli-h-127-0-0-1-p-6379"><a href="#指定IP和端口连接redis：-redis-cli-h-127-0-0-1-p-6379" class="headerlink" title="指定IP和端口连接redis：./redis-cli -h 127.0.0.1 -p 6379"></a>指定IP和端口连接redis：./redis-cli -h 127.0.0.1 -p 6379</h3><p><img src="https://ae01.alicdn.com/kf/HTB1EJtkoTZmx1VjSZFG761x2XXaD.png" alt></p>
 </blockquote>
-<h2 id="下载和安装"><a href="#下载和安装" class="headerlink" title="下载和安装"></a>下载和安装</h2><blockquote>
-<p>1、从官网下载到压缩包：<a href="https://redis.io/download" target="_blank" rel="noopener">点击下载</a><br>2、通过远程管理工具xstp，将压缩包上传至linux服务器<br>3、将压缩包解压到/usr/local目录下：tar -zxvf redis-5.0.4.tar.gz -C /usr/local（注意：由于压缩包后缀为.tar.gz，所有需要gzip解压，对应z参数）<br>4、使用make命令进行编译，因为redis是c语言开发的，需要编译，编译需要gcc编译器（gcc是GNU compiler collection的缩写，它是linux下一个编译器集合，是c或c++程序的编译器）如果没有gcc编译器，需要使用yum -y install gcc安装gcc编译器。</p>
+<h2 id="redis远程客户端"><a href="#redis远程客户端" class="headerlink" title="redis远程客户端"></a>redis远程客户端</h2><blockquote>
+<p>Redis Desktop Manager<br>官网：<a href="https://redisdesktop.com/" target="_blank" rel="noopener">https://redisdesktop.com/</a><br>下载地址：<a href="https://github.com/uglide/RedisDesktopManager/releases/tag/0.8.8" target="_blank" rel="noopener">Redis Desktop Manager</a></p>
 </blockquote>
-<h2 id="Redis的目录结构"><a href="#Redis的目录结构" class="headerlink" title="Redis的目录结构"></a>Redis的目录结构</h2><p><img src="https://ae01.alicdn.com/kf/HTB1Fz4Thu3tHKVjSZSg7604QFXaY.png" alt><br>其中redis.conf为redis的配置文件，src目录下有启动和关闭redis的程序。</p>
-<h2 id="Redis的启动和关闭"><a href="#Redis的启动和关闭" class="headerlink" title="Redis的启动和关闭"></a>Redis的启动和关闭</h2><h3 id="前台启动"><a href="#前台启动" class="headerlink" title="前台启动"></a>前台启动</h3><blockquote>
-<p>切换到src目录下，执行./redis-server即可启动redis服务<br><img src="https://ae01.alicdn.com/kf/HTB1Mu7VUhTpK1RjSZFK7612wXXaV.png" alt><br>注意：这里执行./redis-server启动的redis服务，代表的是在前台启动redis服务，当你关闭当前会话时，即关闭了redis的服务。</p>
+<p>注意：远程连接redis需要修改redis的配置文件redis.conf</p>
+<blockquote>
+<p>1、将bind ip绑定ip注释掉，不然只能允许本机连接redis<br>2、protected-mode yes 保护模式改为no。（经过我的发现，其实在这里设置了no也是不管用的，后面有讲）<br><img src="https://ae01.alicdn.com/kf/HTB1YdhRVW6qK1RjSZFm7600PFXah.png" alt><br>3、设置redis的密码<br>找到requirepass字段设置密码<br><img src="https://ae01.alicdn.com/kf/HTB1AqXPVVzqK1RjSZFo762fcXXad.png" alt></p>
 </blockquote>
-<h3 id="后台启动"><a href="#后台启动" class="headerlink" title="后台启动"></a>后台启动</h3><p>切换到src目录下，执行./redis-server &amp;即可在后台启动redis服务<br><img src="https://ae01.alicdn.com/kf/HTB1PagOUjDpK1RjSZFr76178VXaA.png" alt></p>
-<h3 id="后台启动并输出日志到nohup-out"><a href="#后台启动并输出日志到nohup-out" class="headerlink" title="后台启动并输出日志到nohup.out"></a>后台启动并输出日志到nohup.out</h3><blockquote>
-<p>使用nohup ./redis-server &amp;命令即可在后台启动redis服务，并创建日志文件nohup.out，用于保存redis的日志信息。日志文件nohup.out的输出路径可在redis的配置文件中设置。<br><img src="https://ae01.alicdn.com/kf/HTB1OUppUxnaK1RjSZFt762C2VXaN.png" alt></p>
+<h2 id="redis编程客户端"><a href="#redis编程客户端" class="headerlink" title="redis编程客户端"></a>redis编程客户端</h2><blockquote>
+<p>jedis，redis的Java编程客户端，redis官方首选推荐使用jedis，jedis是一个很小但很健全的redis的java客户端；jedis完全兼容redis2.8.X and 3.X.X<br>jedis源码：<a href="https://github.com/xetorthio/jedis" target="_blank" rel="noopener">https://github.com/xetorthio/jedis</a><br>jedis api：<a href="http://xetorthio.github.io/jedis/" target="_blank" rel="noopener">http://xetorthio.github.io/jedis/</a></p>
 </blockquote>
-<h3 id="关闭"><a href="#关闭" class="headerlink" title="关闭"></a>关闭</h3><blockquote>
-<p>切换到src目录下，执行./redis-cli shutdown即可关闭redis服务<br><img src="https://ae01.alicdn.com/kf/HTB1n5U2UgHqK1RjSZFP763wapXaf.png" alt><br>也可使用kill直接杀死进程达到关闭redis服务的效果<br><img src="https://ae01.alicdn.com/kf/HTB1n5U2UgHqK1RjSZFP763wapXaf.png" alt></p>
+<h2 id="坑"><a href="#坑" class="headerlink" title="坑"></a>坑</h2><blockquote>
+<p>问题描述：使用Redis Desktop Manager连接redis出现如下错误<br><img src="https://ae01.alicdn.com/kf/HTB1IUt5Xfvi21VjSZK9761AEpXaJ.png" alt></p>
 </blockquote>
+<blockquote>
+<p>问题分析：在windows下使用telnet命令查看网络状态<br><img src="https://ae01.alicdn.com/kf/HTB1OYXOV3HqK1RjSZFg7617JXXay.png" alt><br><img src="https://ae01.alicdn.com/kf/HTB1jVJQVVzqK1RjSZFo762fcXXal.png" alt><br>结果是由于redis处于protected mode，导致无法连接，上面说了在redis的配置文件中已经禁用了protected mode，然而在连接redis还是报这个错。<br>注：如果使用telnet命令，出现不是内部或外部命令，也不是可运行的程序。可在控制面板-&gt;程序-&gt;启用或关闭windows功能-&gt;将telnet客户端勾选上即可。</p>
+</blockquote>
+<blockquote>
+<p>问题解决<br>查看protected mode配置<br><img src="https://ae01.alicdn.com/kf/HTB1wD8RV9zqK1RjSZFp761kSXXal.png" alt><br>可以看到还是开启了protected mode，直接禁用即可<br><img src="https://ae01.alicdn.com/kf/HTB1BBVRVZbpK1RjSZFy760_qFXai.png" alt><br>当再次使用Redis Desktop Manager连接redis时，即可连接成功。<br><img src="https://ae01.alicdn.com/kf/HTB1tZegV4naK1RjSZFt762C2VXa5.png" alt></p>
+</blockquote>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>protected mode是redis3.2之后的添加的保护模式，官方解释</p>
+<pre><code># Protected mode is a layer of security protection, in order to avoid that
+# Redis instances left open on the internet are accessed and exploited.
+#
+# When protected mode is on and if:
+#
+# 1) The server is not binding explicitly to a set of addresses using the
+#    &quot;bind&quot; directive.
+# 2) No password is configured.
+#
+# The server only accepts connections from clients connecting from the
+# IPv4 and IPv6 loopback addresses 127.0.0.1 and ::1, and from Unix domain
+# sockets.
+#
+# By default protected mode is enabled. You should disable it only if
+# you are sure you want clients from other hosts to connect to Redis
+# even if no authentication is configured, nor a specific set of interfaces
+# are explicitly listed using the &quot;bind&quot; directive.
+</code></pre><p>默认是开启protected mode，当开启时，需要配置密码，且只能接收127.0.0.1的主机访问。</p>
 
             </div>
             <hr>
@@ -529,7 +556,7 @@ Redis是一个开源的使用ANSI C语言编写、支持网络、可基于内存
                     </span>
                     <a href="https://runmemory.github.io" class="b-link-green">RunMemory</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/redis.html" class="b-link-green">redis</a>
+                    <a href="/redis01.html" class="b-link-green">redis01</a>
                 </p>
             </div>
         </div>
@@ -551,7 +578,7 @@ Redis是一个开源的使用ANSI C语言编写、支持网络、可基于内存
         repo: 'comments',
         owner: 'RunMemory',
         admin: ["RunMemory","ericclose"],
-        id: '2019-05-05T20-27-27',
+        id: '2019-05-15T17-17-08',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -574,7 +601,8 @@ Redis是一个开源的使用ANSI C语言编写、支持网络、可基于内存
         
         <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/redis01.html">
                     <div class="card-image">
@@ -589,9 +617,9 @@ Redis是一个开源的使用ANSI C语言编写、支持网络、可基于内存
 redis-cli(Redis Command Line Interface)是Redis自带的基于命令行的Redis客户端，用于与服务端交互，可以使用该客户端来执行redis的各种命令。
 直接连接r</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-15
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-15
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-user fa-fw"></i>
@@ -600,6 +628,7 @@ redis-cli(Redis Command Line Interface)是Redis自带的基于命令行的Redis�
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -618,22 +647,20 @@ redis-cli(Redis Command Line Interface)是Redis自带的基于命令行的Redis�
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/gitTutorial.html">
+                <a href="/redis.html">
                     <div class="card-image">
                         
-                        <img src="https://ae01.alicdn.com/kf/HTB1yddoRXzqK1RjSZFCq6zbxVXac.jpg" class="responsive-img" alt="Git知识点总结">
+                        <img src="https://ae01.alicdn.com/kf/HTB11Q3YUXzqK1RjSZFCq6zbxVXaL.jpg" class="responsive-img" alt="redis">
                         
-                        <span class="card-title">Git知识点总结</span>
+                        <span class="card-title">redis</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">Git知识点总结什么是版本控制？
-版本控制是对软件开发过程中各种程序代码、配置文件及说明文档等文件变更的管理，是软件配置管理的核心思想之一。【引用自百度百科】
-
-版本控制应该具备哪些功能？ 1.版本管理                   </div>
+                    <div class="summary block-with-text">Linux下redis的安装和部署什么是Redis？
+Redis是一个开源的使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。redis是一个key-value存储系统。和M</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-15
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-05
                             </span>
                         <span class="publish-author">
                             
@@ -646,8 +673,8 @@ redis-cli(Redis Command Line Interface)是Redis自带的基于命令行的Redis�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Git/" target="_blank">
-                        <span class="chip bg-color">Git</span>
+                    <a href="/tags/redis/" target="_blank">
+                        <span class="chip bg-color">redis</span>
                     </a>
                     
                 </div>

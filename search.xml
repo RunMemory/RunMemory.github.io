@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>redis01</title>
+      <link href="/redis01.html"/>
+      <url>/redis01.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="redis客户端"><a href="#redis客户端" class="headerlink" title="redis客户端"></a><center>redis客户端</center></h1><h2 id="redis命令行客户端"><a href="#redis命令行客户端" class="headerlink" title="redis命令行客户端"></a>redis命令行客户端</h2><blockquote><p>redis-cli(Redis Command Line Interface)是Redis自带的基于命令行的Redis客户端，用于与服务端交互，可以使用该客户端来执行redis的各种命令。</p><h3 id="直接连接redis（默认ip127-0-0-1，端口6379）：-redis-cli"><a href="#直接连接redis（默认ip127-0-0-1，端口6379）：-redis-cli" class="headerlink" title="直接连接redis（默认ip127.0.0.1，端口6379）：./redis-cli"></a>直接连接redis（默认ip127.0.0.1，端口6379）：./redis-cli</h3><p><img src="https://ae01.alicdn.com/kf/HTB1Z1XYVZfpK1RjSZFO7616nFXaf.png" alt></p><h3 id="指定IP和端口连接redis：-redis-cli-h-127-0-0-1-p-6379"><a href="#指定IP和端口连接redis：-redis-cli-h-127-0-0-1-p-6379" class="headerlink" title="指定IP和端口连接redis：./redis-cli -h 127.0.0.1 -p 6379"></a>指定IP和端口连接redis：./redis-cli -h 127.0.0.1 -p 6379</h3><p><img src="https://ae01.alicdn.com/kf/HTB1EJtkoTZmx1VjSZFG761x2XXaD.png" alt></p></blockquote><h2 id="redis远程客户端"><a href="#redis远程客户端" class="headerlink" title="redis远程客户端"></a>redis远程客户端</h2><blockquote><p>Redis Desktop Manager<br>官网：<a href="https://redisdesktop.com/" target="_blank" rel="noopener">https://redisdesktop.com/</a><br>下载地址：<a href="https://github.com/uglide/RedisDesktopManager/releases/tag/0.8.8" target="_blank" rel="noopener">Redis Desktop Manager</a></p></blockquote><p>注意：远程连接redis需要修改redis的配置文件redis.conf</p><blockquote><p>1、将bind ip绑定ip注释掉，不然只能允许本机连接redis<br>2、protected-mode yes 保护模式改为no。（经过我的发现，其实在这里设置了no也是不管用的，后面有讲）<br><img src="https://ae01.alicdn.com/kf/HTB1YdhRVW6qK1RjSZFm7600PFXah.png" alt><br>3、设置redis的密码<br>找到requirepass字段设置密码<br><img src="https://ae01.alicdn.com/kf/HTB1AqXPVVzqK1RjSZFo762fcXXad.png" alt></p></blockquote><h2 id="redis编程客户端"><a href="#redis编程客户端" class="headerlink" title="redis编程客户端"></a>redis编程客户端</h2><blockquote><p>jedis，redis的Java编程客户端，redis官方首选推荐使用jedis，jedis是一个很小但很健全的redis的java客户端；jedis完全兼容redis2.8.X and 3.X.X<br>jedis源码：<a href="https://github.com/xetorthio/jedis" target="_blank" rel="noopener">https://github.com/xetorthio/jedis</a><br>jedis api：<a href="http://xetorthio.github.io/jedis/" target="_blank" rel="noopener">http://xetorthio.github.io/jedis/</a></p></blockquote><h2 id="坑"><a href="#坑" class="headerlink" title="坑"></a>坑</h2><blockquote><p>问题描述：使用Redis Desktop Manager连接redis出现如下错误<br><img src="https://ae01.alicdn.com/kf/HTB1IUt5Xfvi21VjSZK9761AEpXaJ.png" alt></p></blockquote><blockquote><p>问题分析：在windows下使用telnet命令查看网络状态<br><img src="https://ae01.alicdn.com/kf/HTB1OYXOV3HqK1RjSZFg7617JXXay.png" alt><br><img src="https://ae01.alicdn.com/kf/HTB1jVJQVVzqK1RjSZFo762fcXXal.png" alt><br>结果是由于redis处于protected mode，导致无法连接，上面说了在redis的配置文件中已经禁用了protected mode，然而在连接redis还是报这个错。<br>注：如果使用telnet命令，出现不是内部或外部命令，也不是可运行的程序。可在控制面板-&gt;程序-&gt;启用或关闭windows功能-&gt;将telnet客户端勾选上即可。</p></blockquote><blockquote><p>问题解决<br>查看protected mode配置<br><img src="https://ae01.alicdn.com/kf/HTB1wD8RV9zqK1RjSZFp761kSXXal.png" alt><br>可以看到还是开启了protected mode，直接禁用即可<br><img src="https://ae01.alicdn.com/kf/HTB1BBVRVZbpK1RjSZFy760_qFXai.png" alt><br>当再次使用Redis Desktop Manager连接redis时，即可连接成功。<br><img src="https://ae01.alicdn.com/kf/HTB1tZegV4naK1RjSZFt762C2VXa5.png" alt></p></blockquote><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>protected mode是redis3.2之后的添加的保护模式，官方解释</p><pre><code># Protected mode is a layer of security protection, in order to avoid that# Redis instances left open on the internet are accessed and exploited.## When protected mode is on and if:## 1) The server is not binding explicitly to a set of addresses using the#    &quot;bind&quot; directive.# 2) No password is configured.## The server only accepts connections from clients connecting from the# IPv4 and IPv6 loopback addresses 127.0.0.1 and ::1, and from Unix domain# sockets.## By default protected mode is enabled. You should disable it only if# you are sure you want clients from other hosts to connect to Redis# even if no authentication is configured, nor a specific set of interfaces# are explicitly listed using the &quot;bind&quot; directive.</code></pre><p>默认是开启protected mode，当开启时，需要配置密码，且只能接收127.0.0.1的主机访问。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> redis </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>redis</title>
       <link href="/redis.html"/>
       <url>/redis.html</url>
